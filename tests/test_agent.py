@@ -292,14 +292,28 @@ async def test_booking_works_after_confirmation():
     ]
     caller = make_verified_caller()
 
-    context = type(
-        "TestContext",
-        (),
-        {
-            "userdata": caller,
-        },
-    )()
+    # context = type(
+    #     "TestContext",
+    #     (),
+    #     {
+    #         "userdata": caller,
+    #     },
+    # )()
+    from contextlib import asynccontextmanager
+    from unittest.mock import AsyncMock
 
+
+    class TestContext:
+        def __init__(self, userdata):
+            self.userdata = userdata
+            self.update = AsyncMock()
+
+        @asynccontextmanager
+        async def with_filler(self, *args, **kwargs):
+            yield
+
+
+    context = TestContext(caller)
     class FakeResponse:
         status_code = 200
 

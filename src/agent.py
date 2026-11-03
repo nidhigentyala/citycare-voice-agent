@@ -19,6 +19,10 @@ from livekit.plugins import groq, ai_coustics
 from .agents import ReceptionAgent
 from .userdata import CallerData
 
+def create_noise_cancellation():
+    return ai_coustics.audio_enhancement(
+        model=ai_coustics.EnhancerModel.QUAIL_VF_S,
+    )
 
 # =========================================================
 # ENVIRONMENT
@@ -211,9 +215,7 @@ async def my_agent(ctx: JobContext):
             text_input=True,
             text_output=True,
             audio_input=room_io.AudioInputOptions(
-                noise_cancellation=ai_coustics.audio_enhancement(
-                    model=ai_coustics.EnhancerModel.QUAIL_VF_S,
-                ),
+                noise_cancellation=create_noise_cancellation(),
                 pre_connect_audio=True,
             ),
             audio_output=True,
