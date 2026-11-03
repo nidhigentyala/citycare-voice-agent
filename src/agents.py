@@ -411,6 +411,14 @@ def end_call_tools():
 class ReceptionAgent(Agent):
 
     def __init__(self, chat_ctx=None):
+        if chat_ctx is not None:
+            print("[LATENCY] Chat context items:", len(chat_ctx.items))
+            print(
+                "[LATENCY] Chat context characters:",
+            sum(len(str(item)) for item in chat_ctx.items)
+        )
+        else:
+            print("[LATENCY] New conversation: no previous context")
         super().__init__(
             instructions="""
 You are CityCare Clinic's friendly Reception Agent.

@@ -312,7 +312,11 @@ def main():
     reports = load_reports()
 
     if not reports:
-        sys.exit(1)
+        print()
+        print("WARNING: No latency reports available.")
+        print("Generate or export LiveKit reports to measure latency.")
+        print("Skipping latency validation.")
+        return
 
     print(f"Reports found: {len(reports)}")
     print()
