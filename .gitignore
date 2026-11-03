@@ -1,0 +1,71 @@
+# .env
+# .env.*
+# !.env.example
+# .DS_Store
+# __pycache__
+# .idea
+# KMS
+# .venv
+# .vscode
+# *.egg-info
+# .pytest_cache
+# .ruff_cache
+# chroma_db/
+
+# # Claude Code
+# .claude/settings.local.json
+# .claude/worktrees/
+
+# # OpenAI Codex
+# .codex/config.local.toml
+
+# # Gemini CLI
+# .gemini/history/
+# .gemini/tmp/
+# .gemini/google_accounts.json
+# .gemini/installation_id
+# .gemini/oauth_creds.json
+
+# # Cursor
+# .cursor/chat/
+# .cursor/rules/*.local.mdc
+
+# # GitHub CLI
+# .github/personal-instructions.md
+
+# # Google Cloud
+# service_account.json
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Frontend
+node_modules/
+dist/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Credentials and secrets
+credentials/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+reports/
+*.backup
+*.egg-info/
